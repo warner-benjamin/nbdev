@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.169">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Generating a documentation index from a module">
+
+<title>nbdev - doclinks</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../favicon.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+<meta property="og:title" content="nbdev - doclinks">
+<meta property="og:description" content="Generating a documentation index from a module">
+<meta property="og:site-name" content="nbdev">
+<meta name="twitter:title" content="nbdev - doclinks">
+<meta name="twitter:description" content="Generating a documentation index from a module">
+<meta name="twitter:card" content="summary">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">nbdev</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="../getting_started.html" aria-current="page">
+ <span class="menu-text">Get Started</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../tutorials/tutorial.html">
+ <span class="menu-text">Tutorial</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../blog/index.html">
+ <span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-help" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Help</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-help">    
+        <li>
+    <a class="dropdown-item" href="https://github.com/fastai/nbdev/issues"><i class="bi bi-bug" role="img">
+</i> 
+ <span class="dropdown-text">Report an Issue</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://forums.fast.ai/"><i class="bi bi-chat-right-text" role="img">
+</i> 
+ <span class="dropdown-text">Fast.ai Forum</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../getting_started.html#faq"><i class="bi bi-question-circle" role="img">
+</i> 
+ <span class="dropdown-text">FAQ</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/fastai/nbdev"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/fastdotai"><i class="bi bi-twitter" role="img" aria-label="Fast.ai Twitter">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">doclinks</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../getting_started.html" class="sidebar-item-text sidebar-link">Getting Started</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../migrating.html" class="sidebar-item-text sidebar-link">nbdev1 Migration</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../tutorials/index.html" class="sidebar-item-text sidebar-link">Tutorials</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/tutorial.html" class="sidebar-item-text sidebar-link">End-To-End Walkthrough</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/best_practices.html" class="sidebar-item-text sidebar-link">Notebook Best Practices</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/qmd_intro.html" class="sidebar-item-text sidebar-link">Qmd Documents</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/renderscript.html" class="sidebar-item-text sidebar-link">RenderScripts</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/git_friendly_jupyter.html" class="sidebar-item-text sidebar-link">Git-Friendly Jupyter</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/blogging.html" class="sidebar-item-text sidebar-link">Blogging</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/pre_commit.html" class="sidebar-item-text sidebar-link">Pre-Commit Hooks</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/docs_only.html" class="sidebar-item-text sidebar-link">Documentation Only Sites</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/modular_nbdev.html" class="sidebar-item-text sidebar-link">Modular nbdev</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../explanations/index.html" class="sidebar-item-text sidebar-link">Explanations</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../explanations/config.html" class="sidebar-item-text sidebar-link">Settings.ini</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../explanations/directives.html" class="sidebar-item-text sidebar-link">Directives</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../explanations/docs.html" class="sidebar-item-text sidebar-link">Docs Website</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../explanations/why_nbdev.html" class="sidebar-item-text sidebar-link">Why nbdev</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../api/index.html" class="sidebar-item-text sidebar-link">API</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../api/config.html" class="sidebar-item-text sidebar-link">config</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../api/maker.html" class="sidebar-item-text sidebar-link">maker</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../api/process.html" class="sidebar-item-text sidebar-link">process</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../api/export.html" class="sidebar-item-text sidebar-link">export</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../api/doclinks.html" class="sidebar-item-text sidebar-link active">doclinks</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../api/sync.html" class="sidebar-item-text sidebar-link">sync</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../api/merge.html" class="sidebar-item-text sidebar-link">merge</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../api/showdoc.html" class="sidebar-item-text sidebar-link">showdoc</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../api/frontmatter.html" class="sidebar-item-text sidebar-link">frontmatter</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../api/processors.html" class="sidebar-item-text sidebar-link">processors</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../api/clean.html" class="sidebar-item-text sidebar-link">clean</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../api/test.html" class="sidebar-item-text sidebar-link">test</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../api/cli.html" class="sidebar-item-text sidebar-link">cli</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../api/quarto.html" class="sidebar-item-text sidebar-link">quarto</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../api/qmd.html" class="sidebar-item-text sidebar-link">qmd</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../api/migrate.html" class="sidebar-item-text sidebar-link">migrate</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../api/serve.html" class="sidebar-item-text sidebar-link">serve</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../api/release.html" class="sidebar-item-text sidebar-link">release</a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#create-the-module-index" id="toc-create-the-module-index" class="nav-link active" data-scroll-target="#create-the-module-index">Create the module index</a>
+  <ul>
+  <li><a href="#patch_name" id="toc-patch_name" class="nav-link" data-scroll-target="#patch_name">patch_name</a></li>
+  </ul></li>
+  <li><a href="#export-a-notebook" id="toc-export-a-notebook" class="nav-link" data-scroll-target="#export-a-notebook">Export a notebook</a>
+  <ul>
+  <li><a href="#nbglob" id="toc-nbglob" class="nav-link" data-scroll-target="#nbglob">nbglob</a></li>
+  <li><a href="#nbglob_cli" id="toc-nbglob_cli" class="nav-link" data-scroll-target="#nbglob_cli">nbglob_cli</a></li>
+  <li><a href="#nbdev_export" id="toc-nbdev_export" class="nav-link" data-scroll-target="#nbdev_export">nbdev_export</a></li>
+  </ul></li>
+  <li><a href="#query-the-module-index" id="toc-query-the-module-index" class="nav-link" data-scroll-target="#query-the-module-index">Query the module index</a>
+  <ul>
+  <li><a href="#nbdevlookup" id="toc-nbdevlookup" class="nav-link" data-scroll-target="#nbdevlookup">NbdevLookup</a></li>
+  <li><a href="#nbdevlookup.doc" id="toc-nbdevlookup.doc" class="nav-link" data-scroll-target="#nbdevlookup.doc">NbdevLookup.doc</a></li>
+  <li><a href="#nbdevlookup.code" id="toc-nbdevlookup.code" class="nav-link" data-scroll-target="#nbdevlookup.code">NbdevLookup.code</a></li>
+  <li><a href="#nbdevlookup.linkify" id="toc-nbdevlookup.linkify" class="nav-link" data-scroll-target="#nbdevlookup.linkify">NbdevLookup.linkify</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/fastai/nbdev/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">doclinks</h1>
+</div>
+
+<div>
+  <div class="description">
+    Generating a documentation index from a module
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<!-- WARNING: THIS FILE WAS AUTOGENERATED! DO NOT EDIT! -->
+<section id="create-the-module-index" class="level2">
+<h2 class="anchored" data-anchor-id="create-the-module-index">Create the module index</h2>
+<hr>
+<p><a href="https://github.com/fastai/nbdev/blob/master/nbdev/doclinks.py#L32" target="_blank" style="float:right; font-size:smaller">source</a></p>
+<section id="patch_name" class="level3">
+<h3 class="anchored" data-anchor-id="patch_name">patch_name</h3>
+<blockquote class="blockquote">
+<pre><code> patch_name (o)</code></pre>
+</blockquote>
+<p>If <code>o</code> is decorated with <code>patch</code> or <code>patch_to</code>, return its class-prefix name</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> _test_patch(code): <span class="cf">return</span> patch_name(ast.parse(code).body[<span class="dv">0</span>])</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> <span class="st">"@patch</span><span class="ch">\n</span><span class="st">def _f(self:_T): ..."</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>test_eq(<span class="st">'_T._f'</span>, _test_patch(s))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> <span class="st">"@patch_to(_T)</span><span class="ch">\n</span><span class="st">def _g(self): ..."</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>test_eq(<span class="st">'_T._g'</span>, _test_patch(s))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get all patched classes when patching with a union</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> <span class="st">"@patch</span><span class="ch">\n</span><span class="st">def _f(self:_T|_U|_V): ..."</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>test_eq(_test_patch(s), [<span class="st">'_T._f'</span>, <span class="st">'_U._f'</span>, <span class="st">'_V._f'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># _build_modidx()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="export-a-notebook" class="level2">
+<h2 class="anchored" data-anchor-id="export-a-notebook">Export a notebook</h2>
+<hr>
+<p><a href="https://github.com/fastai/nbdev/blob/master/nbdev/doclinks.py#L103" target="_blank" style="float:right; font-size:smaller">source</a></p>
+<section id="nbglob" class="level3">
+<h3 class="anchored" data-anchor-id="nbglob">nbglob</h3>
+<blockquote class="blockquote">
+<pre><code> nbglob (path=None, skip_folder_re='^[_.]', file_glob='*.ipynb',
+         skip_file_re='^[_.]', key='nbs_path', as_path=False,
+         recursive:bool=True, symlinks:bool=True, file_re:str=None,
+         folder_re:str=None, skip_file_glob:str=None,
+         func:callable=&lt;function join&gt;, ret_folders:bool=False)</code></pre>
+</blockquote>
+<p>Find all files in a directory matching an extension given a config key.</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th></th>
+<th><strong>Type</strong></th>
+<th><strong>Default</strong></th>
+<th><strong>Details</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>path</td>
+<td>Path | str</td>
+<td></td>
+<td>path to start searching</td>
+</tr>
+<tr class="even">
+<td>skip_folder_re</td>
+<td>str</td>
+<td>None</td>
+<td>Skip folders matching regex,</td>
+</tr>
+<tr class="odd">
+<td>file_glob</td>
+<td>str</td>
+<td>None</td>
+<td>Only include files matching glob</td>
+</tr>
+<tr class="even">
+<td>skip_file_re</td>
+<td>str</td>
+<td>None</td>
+<td>Skip files matching regex</td>
+</tr>
+<tr class="odd">
+<td>key</td>
+<td>str</td>
+<td>nbs_path</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>as_path</td>
+<td>bool</td>
+<td>False</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>recursive</td>
+<td>bool</td>
+<td>True</td>
+<td>search subfolders</td>
+</tr>
+<tr class="even">
+<td>symlinks</td>
+<td>bool</td>
+<td>True</td>
+<td>follow symlinks?</td>
+</tr>
+<tr class="odd">
+<td>file_re</td>
+<td>str</td>
+<td>None</td>
+<td>Only include files matching regex</td>
+</tr>
+<tr class="even">
+<td>folder_re</td>
+<td>str</td>
+<td>None</td>
+<td>Only enter folders matching regex</td>
+</tr>
+<tr class="odd">
+<td>skip_file_glob</td>
+<td>str</td>
+<td>None</td>
+<td>Skip files matching glob</td>
+</tr>
+<tr class="even">
+<td>func</td>
+<td>callable</td>
+<td>join</td>
+<td>function to apply to each matched file</td>
+</tr>
+<tr class="odd">
+<td>ret_folders</td>
+<td>bool</td>
+<td>False</td>
+<td>return folders, not just files</td>
+</tr>
+<tr class="even">
+<td><strong>Returns</strong></td>
+<td><strong>L</strong></td>
+<td></td>
+<td><strong>Paths to matched files</strong></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><a href="https://github.com/fastai/nbdev/blob/master/nbdev/doclinks.py#L112" target="_blank" style="float:right; font-size:smaller">source</a></p>
+</section>
+<section id="nbglob_cli" class="level3">
+<h3 class="anchored" data-anchor-id="nbglob_cli">nbglob_cli</h3>
+<blockquote class="blockquote">
+<pre><code> nbglob_cli (path:str=None, symlinks:bool=False, file_glob:str='*.ipynb',
+             file_re:str=None, folder_re:str=None,
+             skip_file_glob:str=None, skip_file_re:str='^[_.]',
+             skip_folder_re:str='^[_.]')</code></pre>
+</blockquote>
+<p>Find all files in a directory matching an extension given a config key.</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th></th>
+<th><strong>Type</strong></th>
+<th><strong>Default</strong></th>
+<th><strong>Details</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>path</td>
+<td>str</td>
+<td>None</td>
+<td>Path to notebooks</td>
+</tr>
+<tr class="even">
+<td>symlinks</td>
+<td>bool</td>
+<td>False</td>
+<td>Follow symlinks?</td>
+</tr>
+<tr class="odd">
+<td>file_glob</td>
+<td>str</td>
+<td>*.ipynb</td>
+<td>Only include files matching glob</td>
+</tr>
+<tr class="even">
+<td>file_re</td>
+<td>str</td>
+<td>None</td>
+<td>Only include files matching regex</td>
+</tr>
+<tr class="odd">
+<td>folder_re</td>
+<td>str</td>
+<td>None</td>
+<td>Only enter folders matching regex</td>
+</tr>
+<tr class="even">
+<td>skip_file_glob</td>
+<td>str</td>
+<td>None</td>
+<td>Skip files matching glob</td>
+</tr>
+<tr class="odd">
+<td>skip_file_re</td>
+<td>str</td>
+<td>^[_.]</td>
+<td>Skip files matching regex</td>
+</tr>
+<tr class="even">
+<td>skip_folder_re</td>
+<td>str</td>
+<td>^[_.]</td>
+<td>Skip folders matching regex</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><a href="https://github.com/fastai/nbdev/blob/master/nbdev/doclinks.py#L128" target="_blank" style="float:right; font-size:smaller">source</a></p>
+</section>
+<section id="nbdev_export" class="level3">
+<h3 class="anchored" data-anchor-id="nbdev_export">nbdev_export</h3>
+<blockquote class="blockquote">
+<pre><code> nbdev_export (path:str=None, symlinks:bool=False,
+               file_glob:str='*.ipynb', file_re:str=None,
+               folder_re:str=None, skip_file_glob:str=None,
+               skip_file_re:str='^[_.]', skip_folder_re:str='^[_.]')</code></pre>
+</blockquote>
+<p>Export notebooks in <code>path</code> to Python modules</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th></th>
+<th><strong>Type</strong></th>
+<th><strong>Default</strong></th>
+<th><strong>Details</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>path</td>
+<td>str</td>
+<td>None</td>
+<td>Path or filename</td>
+</tr>
+<tr class="even">
+<td>symlinks</td>
+<td>bool</td>
+<td>False</td>
+<td>Follow symlinks?</td>
+</tr>
+<tr class="odd">
+<td>file_glob</td>
+<td>str</td>
+<td>*.ipynb</td>
+<td>Only include files matching glob</td>
+</tr>
+<tr class="even">
+<td>file_re</td>
+<td>str</td>
+<td>None</td>
+<td>Only include files matching regex</td>
+</tr>
+<tr class="odd">
+<td>folder_re</td>
+<td>str</td>
+<td>None</td>
+<td>Only enter folders matching regex</td>
+</tr>
+<tr class="even">
+<td>skip_file_glob</td>
+<td>str</td>
+<td>None</td>
+<td>Skip files matching glob</td>
+</tr>
+<tr class="odd">
+<td>skip_file_re</td>
+<td>str</td>
+<td>^[_.]</td>
+<td>Skip files matching regex</td>
+</tr>
+<tr class="even">
+<td>skip_folder_re</td>
+<td>str</td>
+<td>^[_.]</td>
+<td>Skip folders matching regex</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="query-the-module-index" class="level2">
+<h2 class="anchored" data-anchor-id="query-the-module-index">Query the module index</h2>
+<hr>
+<p><a href="https://github.com/fastai/nbdev/blob/master/nbdev/doclinks.py#L185" target="_blank" style="float:right; font-size:smaller">source</a></p>
+<section id="nbdevlookup" class="level3">
+<h3 class="anchored" data-anchor-id="nbdevlookup">NbdevLookup</h3>
+<blockquote class="blockquote">
+<pre><code> NbdevLookup (strip_libs=None, incl_libs=None, skip_mods=None)</code></pre>
+</blockquote>
+<p>Mapping from symbol names to docs and source URLs</p>
+<p>Indexing returns a link to the symbol’s docs, along with the name of the source file the source URL if available.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> NbdevLookup()</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>c[<span class="st">'nbdev.doclinks.NbdevLookup'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>('https://nbdev.fast.ai/api/doclinks.html#nbdevlookup',
+ 'nbdev/doclinks.py',
+ 'https://github.com/fastai/nbdev/blob/master/nbdev/doclinks.py')</code></pre>
+</div>
+</div>
+<hr>
+<p><a href="https://github.com/fastai/nbdev/blob/master/nbdev/doclinks.py#L210" target="_blank" style="float:right; font-size:smaller">source</a></p>
+</section>
+<section id="nbdevlookup.doc" class="level3">
+<h3 class="anchored" data-anchor-id="nbdevlookup.doc">NbdevLookup.doc</h3>
+<blockquote class="blockquote">
+<pre><code> NbdevLookup.doc (sym)</code></pre>
+</blockquote>
+<p>Link to docs for <code>sym</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>c.doc(<span class="st">'nbdev.doclinks.NbdevLookup'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>'https://nbdev.fast.ai/api/doclinks.html#nbdevlookup'</code></pre>
+</div>
+</div>
+<p>Symbol names are taken from libraries registered using the ‘nbdev’ entry point. By default, all libraries with this entry point are searched, but full symbol names (including module prefix) are required.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> c.doc(<span class="st">'numpy.array'</span>).startswith(<span class="st">'http'</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> c.doc(<span class="st">'NbdevLookup'</span>).endswith(<span class="st">'#nbdevlookup'</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="kw">not</span> c.doc(<span class="st">'array'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Pass <code>strip_libs</code> to list libraries which should be available without requiring a module prefix.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> NbdevLookup(strip_libs<span class="op">=</span>(<span class="st">'nbdev'</span>, <span class="st">'nbdev_numpy'</span>))</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> c.doc(<span class="st">'array'</span>).startswith(<span class="st">'http'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<hr>
+<p><a href="https://github.com/fastai/nbdev/blob/master/nbdev/doclinks.py#L215" target="_blank" style="float:right; font-size:smaller">source</a></p>
+</section>
+<section id="nbdevlookup.code" class="level3">
+<h3 class="anchored" data-anchor-id="nbdevlookup.code">NbdevLookup.code</h3>
+<blockquote class="blockquote">
+<pre><code> NbdevLookup.code (sym)</code></pre>
+</blockquote>
+<p>Link to source code for <code>sym</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>NbdevLookup().code(<span class="st">'fastcore.net.urlsend'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>'https://github.com/fastai/fastcore/blob/master/fastcore/net.py#LNone'</code></pre>
+</div>
+</div>
+<hr>
+<p><a href="https://github.com/fastai/nbdev/blob/master/nbdev/doclinks.py#L232" target="_blank" style="float:right; font-size:smaller">source</a></p>
+</section>
+<section id="nbdevlookup.linkify" class="level3">
+<h3 class="anchored" data-anchor-id="nbdevlookup.linkify">NbdevLookup.linkify</h3>
+<blockquote class="blockquote">
+<pre><code> NbdevLookup.linkify (md)</code></pre>
+</blockquote>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>md <span class="op">=</span> <span class="st">"""This is a link to `numpy.array` and to `get_config` but not a link to `foobar`.</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="st">And not a link to &lt;code&gt;dict2nb&lt;/code&gt;.</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="st">    This is not a link to `get_config`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This isn’t a link to <code>get_config</code> either</p>
+<pre class="&quot;&quot;&quot;"><code></code></pre>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(NbdevLookup(<span class="st">'nbdev'</span>).linkify(md))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>This is a link to [`numpy.array`](https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array) and to [`get_config`](https://nbdev.fast.ai/api/config.html#get_config) but not a link to `foobar`.
+And not a link to &lt;code&gt;dict2nb&lt;/code&gt;.
+
+    This is not a link to `get_config`
+</code></pre>
+<p>This isn’t a link to <code>get_config</code> either</p>
+<pre><code></code></pre>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

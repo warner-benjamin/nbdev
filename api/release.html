@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.169">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Auto-generated tagged releases and release notes from GitHub issues">
+
+<title>nbdev - release</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../favicon.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+<meta property="og:title" content="nbdev - release">
+<meta property="og:description" content="Auto-generated tagged releases and release notes from GitHub issues">
+<meta property="og:site-name" content="nbdev">
+<meta name="twitter:title" content="nbdev - release">
+<meta name="twitter:description" content="Auto-generated tagged releases and release notes from GitHub issues">
+<meta name="twitter:card" content="summary">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">nbdev</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="../getting_started.html" aria-current="page">
+ <span class="menu-text">Get Started</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../tutorials/tutorial.html">
+ <span class="menu-text">Tutorial</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../blog/index.html">
+ <span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-help" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Help</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-help">    
+        <li>
+    <a class="dropdown-item" href="https://github.com/fastai/nbdev/issues"><i class="bi bi-bug" role="img">
+</i> 
+ <span class="dropdown-text">Report an Issue</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://forums.fast.ai/"><i class="bi bi-chat-right-text" role="img">
+</i> 
+ <span class="dropdown-text">Fast.ai Forum</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../getting_started.html#faq"><i class="bi bi-question-circle" role="img">
+</i> 
+ <span class="dropdown-text">FAQ</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/fastai/nbdev"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/fastdotai"><i class="bi bi-twitter" role="img" aria-label="Fast.ai Twitter">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">release</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../getting_started.html" class="sidebar-item-text sidebar-link">Getting Started</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../migrating.html" class="sidebar-item-text sidebar-link">nbdev1 Migration</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../tutorials/index.html" class="sidebar-item-text sidebar-link">Tutorials</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/tutorial.html" class="sidebar-item-text sidebar-link">End-To-End Walkthrough</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/best_practices.html" class="sidebar-item-text sidebar-link">Notebook Best Practices</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/qmd_intro.html" class="sidebar-item-text sidebar-link">Qmd Documents</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/renderscript.html" class="sidebar-item-text sidebar-link">RenderScripts</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/git_friendly_jupyter.html" class="sidebar-item-text sidebar-link">Git-Friendly Jupyter</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/blogging.html" class="sidebar-item-text sidebar-link">Blogging</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/pre_commit.html" class="sidebar-item-text sidebar-link">Pre-Commit Hooks</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/docs_only.html" class="sidebar-item-text sidebar-link">Documentation Only Sites</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/modular_nbdev.html" class="sidebar-item-text sidebar-link">Modular nbdev</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../explanations/index.html" class="sidebar-item-text sidebar-link">Explanations</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../explanations/config.html" class="sidebar-item-text sidebar-link">Settings.ini</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../explanations/directives.html" class="sidebar-item-text sidebar-link">Directives</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../explanations/docs.html" class="sidebar-item-text sidebar-link">Docs Website</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../explanations/why_nbdev.html" class="sidebar-item-text sidebar-link">Why nbdev</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../api/index.html" class="sidebar-item-text sidebar-link">API</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../api/config.html" class="sidebar-item-text sidebar-link">config</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../api/maker.html" class="sidebar-item-text sidebar-link">maker</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../api/process.html" class="sidebar-item-text sidebar-link">process</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../api/export.html" class="sidebar-item-text sidebar-link">export</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../api/doclinks.html" class="sidebar-item-text sidebar-link">doclinks</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../api/sync.html" class="sidebar-item-text sidebar-link">sync</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../api/merge.html" class="sidebar-item-text sidebar-link">merge</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../api/showdoc.html" class="sidebar-item-text sidebar-link">showdoc</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../api/frontmatter.html" class="sidebar-item-text sidebar-link">frontmatter</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../api/processors.html" class="sidebar-item-text sidebar-link">processors</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../api/clean.html" class="sidebar-item-text sidebar-link">clean</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../api/test.html" class="sidebar-item-text sidebar-link">test</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../api/cli.html" class="sidebar-item-text sidebar-link">cli</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../api/quarto.html" class="sidebar-item-text sidebar-link">quarto</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../api/qmd.html" class="sidebar-item-text sidebar-link">qmd</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../api/migrate.html" class="sidebar-item-text sidebar-link">migrate</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../api/serve.html" class="sidebar-item-text sidebar-link">serve</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../api/release.html" class="sidebar-item-text sidebar-link active">release</a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a>
+  <ul>
+  <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">Setup</a></li>
+  <li><a href="#creating-release-notes" id="toc-creating-release-notes" class="nav-link" data-scroll-target="#creating-release-notes">Creating release notes</a></li>
+  <li><a href="#tagging-a-release" id="toc-tagging-a-release" class="nav-link" data-scroll-target="#tagging-a-release">Tagging a release</a></li>
+  <li><a href="#doing-both-creating-release-notes-and-tagging-a-release" id="toc-doing-both-creating-release-notes-and-tagging-a-release" class="nav-link" data-scroll-target="#doing-both-creating-release-notes-and-tagging-a-release">Doing both (creating release notes, and tagging a release)</a></li>
+  </ul></li>
+  <li><a href="#python-api" id="toc-python-api" class="nav-link" data-scroll-target="#python-api">Python API</a>
+  <ul>
+  <li><a href="#release" id="toc-release" class="nav-link" data-scroll-target="#release">Release</a></li>
+  <li><a href="#release.changelog" id="toc-release.changelog" class="nav-link" data-scroll-target="#release.changelog">Release.changelog</a></li>
+  <li><a href="#release.release" id="toc-release.release" class="nav-link" data-scroll-target="#release.release">Release.release</a></li>
+  <li><a href="#release.latest_notes" id="toc-release.latest_notes" class="nav-link" data-scroll-target="#release.latest_notes">Release.latest_notes</a></li>
+  </ul></li>
+  <li><a href="#cli-functions" id="toc-cli-functions" class="nav-link" data-scroll-target="#cli-functions">CLI functions</a>
+  <ul>
+  <li><a href="#changelog" id="toc-changelog" class="nav-link" data-scroll-target="#changelog">changelog</a></li>
+  <li><a href="#release_git" id="toc-release_git" class="nav-link" data-scroll-target="#release_git">release_git</a></li>
+  <li><a href="#release_gh" id="toc-release_gh" class="nav-link" data-scroll-target="#release_gh">release_gh</a></li>
+  </ul></li>
+  <li><a href="#publish-packages" id="toc-publish-packages" class="nav-link" data-scroll-target="#publish-packages">Publish Packages</a>
+  <ul>
+  <li><a href="#pypi_json" id="toc-pypi_json" class="nav-link" data-scroll-target="#pypi_json">pypi_json</a></li>
+  <li><a href="#latest_pypi" id="toc-latest_pypi" class="nav-link" data-scroll-target="#latest_pypi">latest_pypi</a></li>
+  <li><a href="#pypi_details" id="toc-pypi_details" class="nav-link" data-scroll-target="#pypi_details">pypi_details</a></li>
+  <li><a href="#conda_output_path" id="toc-conda_output_path" class="nav-link" data-scroll-target="#conda_output_path">conda_output_path</a></li>
+  <li><a href="#write_conda_meta" id="toc-write_conda_meta" class="nav-link" data-scroll-target="#write_conda_meta">write_conda_meta</a></li>
+  <li><a href="#anaconda_upload" id="toc-anaconda_upload" class="nav-link" data-scroll-target="#anaconda_upload">anaconda_upload</a></li>
+  <li><a href="#release_conda" id="toc-release_conda" class="nav-link" data-scroll-target="#release_conda">release_conda</a></li>
+  <li><a href="#chk_conda_rel" id="toc-chk_conda_rel" class="nav-link" data-scroll-target="#chk_conda_rel">chk_conda_rel</a></li>
+  <li><a href="#release_pypi" id="toc-release_pypi" class="nav-link" data-scroll-target="#release_pypi">release_pypi</a></li>
+  <li><a href="#release_both" id="toc-release_both" class="nav-link" data-scroll-target="#release_both">release_both</a></li>
+  </ul></li>
+  <li><a href="#bump-version" id="toc-bump-version" class="nav-link" data-scroll-target="#bump-version">Bump Version</a>
+  <ul>
+  <li><a href="#bump_version" id="toc-bump_version" class="nav-link" data-scroll-target="#bump_version">bump_version</a></li>
+  <li><a href="#nbdev_bump_version" id="toc-nbdev_bump_version" class="nav-link" data-scroll-target="#nbdev_bump_version">nbdev_bump_version</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/fastai/nbdev/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">release</h1>
+</div>
+
+<div>
+  <div class="description">
+    Auto-generated tagged releases and release notes from GitHub issues
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<!-- WARNING: THIS FILE WAS AUTOGENERATED! DO NOT EDIT! -->
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p><code>nbdev.release</code> provides 3 commands that you can run from your shell to manage your changelog file and git releases:</p>
+<ul>
+<li><code>nbdev_changelog</code>: creates a CHANGELOG.md file from closed and labeled GitHub issues</li>
+<li><code>nbdev_release_git</code>: tags and creates a release in GitHub for the current version</li>
+<li><code>nbdev_release_gh</code>: calls <code>nbdev_changelog</code>, lets you edit the result, then pushes to git and calls <code>nbdev_release_git</code></li>
+</ul>
+<p>It provides 3 futher commands for releasing packages on pypi or conda:</p>
+<ul>
+<li><code>nbdev_pypi</code>: Create and upload a pypi installer</li>
+<li><code>nbdev_conda</code>: Create and upload a conda installer</li>
+<li><code>nbdev_release_both</code>: Create and upload both pypi and conda installers</li>
+</ul>
+<p>Here’s a brief demonstration of how to use the changelog and git release tools in <code>nbdev.release</code>. This demo first creates an issue using the <a href="https://cli.github.com/"><code>gh</code></a> command line tool, and then closes it using <code>git</code>; you can also use GitHub’s web interface for both of these tasks. (Note that this functionality used to be in a project called <code>fastrelease</code>, so in the video the command line tools have different names, starting with <code>fastrelease_</code> instead of <code>nbdev_</code>).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/release.svg"><img src="images/release.svg" class="img-fluid figure-img" width="900"></a></p>
+</figure>
+</div>
+<section id="setup" class="level3">
+<h3 class="anchored" data-anchor-id="setup">Setup</h3>
+<p>You’ll need to get a GitHub <a href="https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token">personal access token</a> if you haven’t already. To do so, <a href="https://github.com/settings/tokens/new">click here</a> and enter “nbdev” in the “Note” section, and click the <code>repo</code> checkbox.</p>
+<p>Then click “Generate Token” at the bottom of the screen, and copy the token (the long string of letters and numbers shown). You can easily do that by clicking the little clipboard icon next to the token.</p>
+<p><img alt="Copying your token" width="743" caption="Copying your token" src="images/token.png"></p>
+<p>Paste that token into a file called <code>token</code> into the root of your repo. You can run the following in your terminal (<code>cd</code> to the root of your repo first) to create that file:</p>
+<pre><code>echo XXX &gt; token</code></pre>
+<p>Replace <em>XXX</em> above with the token you copied. Also, ensure that this file isn’t added to git, by running this in your terminal:</p>
+<pre><code>echo token &gt;&gt; .gitignore</code></pre>
+</section>
+<section id="creating-release-notes" class="level3">
+<h3 class="anchored" data-anchor-id="creating-release-notes">Creating release notes</h3>
+<p>Now you’re ready to create your release notes. These are created in a file called <code>CHANGELOG.md</code>. Here’s an example of what it creates: <a href="https://github.com/fastai/nbdev/blob/master/CHANGELOG.md">nbdev CHANGELOG</a>.</p>
+<p>All issues with the label <strong>bug</strong>, <strong>enhancement</strong>, or <strong>breaking</strong> that have been closed in your repo since your last release will be added to the top of this file. If you haven’t made any releases before, then all issues with those labels will be included.</p>
+<p>Therefore, before you create or update <code>CHANGELOG.md</code>, go to your GitHub issues page, remove <code>is:open</code> from the filter, and label any issues you want included with one of the labels above. When you’ve done that, you can create or update your release notes by running in your terminal:</p>
+<pre><code>nbdev_changelog</code></pre>
+<p>The titles and bodies of each issue will be added. Open <code>CHANGELOG.md</code> in your editor and make any edits that you want, and then commit the file to your repo (remember to <code>git add</code> it!)</p>
+</section>
+<section id="tagging-a-release" class="level3">
+<h3 class="anchored" data-anchor-id="tagging-a-release">Tagging a release</h3>
+<p>You should now tag a release. This will create a tag in GitHub with your current version number in <code>settings.ini</code>, and will then make it into a release, using your latest release notes as the description of the release:</p>
+<pre><code>nbdev_release_git</code></pre>
+<p>After you run this, be sure to increment your version number in <code>settings.ini</code>. You can either edit it manually, or if you use nbdev it can be done for you by running:</p>
+<pre><code>nbdev_bump_version</code></pre>
+</section>
+<section id="doing-both-creating-release-notes-and-tagging-a-release" class="level3">
+<h3 class="anchored" data-anchor-id="doing-both-creating-release-notes-and-tagging-a-release">Doing both (creating release notes, and tagging a release)</h3>
+<p>To complete both of the steps above, run:</p>
+<pre><code>nbdev_release_gh</code></pre>
+<p>See the screencast above for a demonstration of this.</p>
+</section>
+</section>
+<section id="python-api" class="level2">
+<h2 class="anchored" data-anchor-id="python-api">Python API</h2>
+<hr>
+<p><a href="https://github.com/fastai/nbdev/blob/master/nbdev/release.py#L44" target="_blank" style="float:right; font-size:smaller">source</a></p>
+<section id="release" class="level3">
+<h3 class="anchored" data-anchor-id="release">Release</h3>
+<blockquote class="blockquote">
+<pre><code> Release (owner=None, repo=None, token=None, **groups)</code></pre>
+</blockquote>
+<p>Create CHANGELOG.md from GitHub issues</p>
+<p>To create a markdown changelog, first create a <a href="https://nbdev.fast.ai/api/release.html#release"><code>Release</code></a> object, optionally passing a mapping from GitHub labels to markdown titles. Put your github token in a file named <code>token</code> at the root of your repo. <a href="https://nbdev.fast.ai/api/release.html#release"><code>Release</code></a> attempts to fetch values for arguments from the following locations if not supplied:</p>
+<ul>
+<li><strong>owner:</strong> fetched from the field <code>user</code> in <code>settings.ini</code>. This is the owner name of the repository on GitHub. For example for the repo <code>fastai/fastcore</code> the owner would be <code>fastai</code>.</li>
+<li><strong>repo:</strong> fetched from the field <code>lib_name</code> in <code>settings.ini</code>. This is the name of the repository on GitHub. For example for the repo <code>fastai/fastcore</code> the owner would be <code>fastcore</code>.</li>
+<li><strong>token:</strong> fetched from a file named <code>token</code> at the root of your repo. Creating a token is discussed in <a href="https://fastrelease.fast.ai/#Set-up">the setup</a> section.</li>
+<li><strong>groups:</strong> (optional) fetched from the field <code>label_groups</code> in <code>settings.ini</code>, which is a JSON string. This is a mapping from label names to titles in your release notes. If not specified, this defaults to:</li>
+</ul>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>{<span class="st">"breaking"</span>: <span class="st">"Breaking Changes"</span>, <span class="st">"enhancement"</span>:<span class="st">"New Features"</span>, <span class="st">"bug"</span>:<span class="st">"Bugs Squashed"</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+<p><a href="https://github.com/fastai/nbdev/blob/master/nbdev/release.py#L67" target="_blank" style="float:right; font-size:smaller">source</a></p>
+</section>
+<section id="release.changelog" class="level3">
+<h3 class="anchored" data-anchor-id="release.changelog">Release.changelog</h3>
+<blockquote class="blockquote">
+<pre><code> Release.changelog (debug=False)</code></pre>
+</blockquote>
+<p>Create the CHANGELOG.md file, or return the proposed text if <code>debug</code> is <code>True</code></p>
+<table class="table">
+<colgroup>
+<col style="width: 6%">
+<col style="width: 25%">
+<col style="width: 34%">
+<col style="width: 34%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th><strong>Type</strong></th>
+<th><strong>Default</strong></th>
+<th><strong>Details</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>debug</td>
+<td>bool</td>
+<td>False</td>
+<td>Just print the latest changes, instead of updating file</td>
+</tr>
+</tbody>
+</table>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>rel <span class="op">=</span> Release()</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># print(rel.changelog(debug=True))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<hr>
+<p><a href="https://github.com/fastai/nbdev/blob/master/nbdev/release.py#L85" target="_blank" style="float:right; font-size:smaller">source</a></p>
+</section>
+<section id="release.release" class="level3">
+<h3 class="anchored" data-anchor-id="release.release">Release.release</h3>
+<blockquote class="blockquote">
+<pre><code> Release.release ()</code></pre>
+</blockquote>
+<p>Tag and create a release in GitHub for the current version</p>
+<p>This uses the version information from your <code>settings.ini</code>.</p>
+<hr>
+<p><a href="https://github.com/fastai/nbdev/blob/master/nbdev/release.py#L94" target="_blank" style="float:right; font-size:smaller">source</a></p>
+</section>
+<section id="release.latest_notes" class="level3">
+<h3 class="anchored" data-anchor-id="release.latest_notes">Release.latest_notes</h3>
+<blockquote class="blockquote">
+<pre><code> Release.latest_notes ()</code></pre>
+</blockquote>
+<p>Latest CHANGELOG entry</p>
+<p>All relevant pull requests and issues are fetched from the GitHub API, and are categorized according to a user-supplied mapping from labels to markdown headings.</p>
+</section>
+</section>
+<section id="cli-functions" class="level2">
+<h2 class="anchored" data-anchor-id="cli-functions">CLI functions</h2>
+<hr>
+<p><a href="https://github.com/fastai/nbdev/blob/master/nbdev/release.py#L103" target="_blank" style="float:right; font-size:smaller">source</a></p>
+<section id="changelog" class="level3">
+<h3 class="anchored" data-anchor-id="changelog">changelog</h3>
+<blockquote class="blockquote">
+<pre><code> changelog (debug:&lt;function store_true&gt;=False, repo:str=None)</code></pre>
+</blockquote>
+<p>Create a CHANGELOG.md file from closed and labeled GitHub issues</p>
+<table class="table">
+<colgroup>
+<col style="width: 6%">
+<col style="width: 25%">
+<col style="width: 34%">
+<col style="width: 34%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th><strong>Type</strong></th>
+<th><strong>Default</strong></th>
+<th><strong>Details</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>debug</td>
+<td>store_true</td>
+<td>False</td>
+<td>Print info to be added to CHANGELOG, instead of updating file</td>
+</tr>
+<tr class="even">
+<td>repo</td>
+<td>str</td>
+<td>None</td>
+<td>repo to use instead of <code>lib_name</code> from <code>settings.ini</code></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><a href="https://github.com/fastai/nbdev/blob/master/nbdev/release.py#L113" target="_blank" style="float:right; font-size:smaller">source</a></p>
+</section>
+<section id="release_git" class="level3">
+<h3 class="anchored" data-anchor-id="release_git">release_git</h3>
+<blockquote class="blockquote">
+<pre><code> release_git (token:str=None)</code></pre>
+</blockquote>
+<p>Tag and create a release in GitHub for the current version</p>
+<table class="table">
+<colgroup>
+<col style="width: 6%">
+<col style="width: 25%">
+<col style="width: 34%">
+<col style="width: 34%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th><strong>Type</strong></th>
+<th><strong>Default</strong></th>
+<th><strong>Details</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>token</td>
+<td>str</td>
+<td>None</td>
+<td>Optional GitHub token (otherwise <code>token</code> file is used)</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><a href="https://github.com/fastai/nbdev/blob/master/nbdev/release.py#L122" target="_blank" style="float:right; font-size:smaller">source</a></p>
+</section>
+<section id="release_gh" class="level3">
+<h3 class="anchored" data-anchor-id="release_gh">release_gh</h3>
+<blockquote class="blockquote">
+<pre><code> release_gh (token:str=None)</code></pre>
+</blockquote>
+<p>Calls <code>nbdev_changelog</code>, lets you edit the result, then pushes to git and calls <code>nbdev_release_git</code></p>
+<table class="table">
+<colgroup>
+<col style="width: 6%">
+<col style="width: 25%">
+<col style="width: 34%">
+<col style="width: 34%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th><strong>Type</strong></th>
+<th><strong>Default</strong></th>
+<th><strong>Details</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>token</td>
+<td>str</td>
+<td>None</td>
+<td>Optional GitHub token (otherwise <code>token</code> file is used)</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="publish-packages" class="level2">
+<h2 class="anchored" data-anchor-id="publish-packages">Publish Packages</h2>
+<hr>
+<p><a href="https://github.com/fastai/nbdev/blob/master/nbdev/release.py#L148" target="_blank" style="float:right; font-size:smaller">source</a></p>
+<section id="pypi_json" class="level3">
+<h3 class="anchored" data-anchor-id="pypi_json">pypi_json</h3>
+<blockquote class="blockquote">
+<pre><code> pypi_json (s)</code></pre>
+</blockquote>
+<p>Dictionary decoded JSON for PYPI path <code>s</code></p>
+<hr>
+<p><a href="https://github.com/fastai/nbdev/blob/master/nbdev/release.py#L153" target="_blank" style="float:right; font-size:smaller">source</a></p>
+</section>
+<section id="latest_pypi" class="level3">
+<h3 class="anchored" data-anchor-id="latest_pypi">latest_pypi</h3>
+<blockquote class="blockquote">
+<pre><code> latest_pypi (name)</code></pre>
+</blockquote>
+<p>Latest version of <code>name</code> on pypi</p>
+<hr>
+<p><a href="https://github.com/fastai/nbdev/blob/master/nbdev/release.py#L159" target="_blank" style="float:right; font-size:smaller">source</a></p>
+</section>
+<section id="pypi_details" class="level3">
+<h3 class="anchored" data-anchor-id="pypi_details">pypi_details</h3>
+<blockquote class="blockquote">
+<pre><code> pypi_details (name)</code></pre>
+</blockquote>
+<p>Version, URL, and SHA256 for <code>name</code> from pypi</p>
+<hr>
+<p><a href="https://github.com/fastai/nbdev/blob/master/nbdev/release.py#L181" target="_blank" style="float:right; font-size:smaller">source</a></p>
+</section>
+<section id="conda_output_path" class="level3">
+<h3 class="anchored" data-anchor-id="conda_output_path">conda_output_path</h3>
+<blockquote class="blockquote">
+<pre><code> conda_output_path (name)</code></pre>
+</blockquote>
+<p>Output path for conda build</p>
+<hr>
+<p><a href="https://github.com/fastai/nbdev/blob/master/nbdev/release.py#L234" target="_blank" style="float:right; font-size:smaller">source</a></p>
+</section>
+<section id="write_conda_meta" class="level3">
+<h3 class="anchored" data-anchor-id="write_conda_meta">write_conda_meta</h3>
+<blockquote class="blockquote">
+<pre><code> write_conda_meta (path='conda')</code></pre>
+</blockquote>
+<p>Writes a <code>meta.yaml</code> file to the <code>conda</code> directory of the current directory</p>
+<p>This function is used in the <code>conda_package</code> CLI command.</p>
+<p><strong>NB</strong>: you need to first of all upload your package to PyPi, before creating the conda package.</p>
+<hr>
+<p><a href="https://github.com/fastai/nbdev/blob/master/nbdev/release.py#L239" target="_blank" style="float:right; font-size:smaller">source</a></p>
+</section>
+<section id="anaconda_upload" class="level3">
+<h3 class="anchored" data-anchor-id="anaconda_upload">anaconda_upload</h3>
+<blockquote class="blockquote">
+<pre><code> anaconda_upload (name, loc=None, user=None, token=None, env_token=None)</code></pre>
+</blockquote>
+<p>Upload <code>name</code> to anaconda</p>
+<hr>
+<p><a href="https://github.com/fastai/nbdev/blob/master/nbdev/release.py#L250" target="_blank" style="float:right; font-size:smaller">source</a></p>
+</section>
+<section id="release_conda" class="level3">
+<h3 class="anchored" data-anchor-id="release_conda">release_conda</h3>
+<blockquote class="blockquote">
+<pre><code> release_conda (path:str='conda', do_build:&lt;function bool_arg&gt;=True,
+                build_args:str='', skip_upload:&lt;function
+                store_true&gt;=False, mambabuild:&lt;function store_true&gt;=False,
+                upload_user:str=None)</code></pre>
+</blockquote>
+<p>Create a <code>meta.yaml</code> file ready to be built into a package, and optionally build and upload it</p>
+<table class="table">
+<colgroup>
+<col style="width: 6%">
+<col style="width: 25%">
+<col style="width: 34%">
+<col style="width: 34%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th><strong>Type</strong></th>
+<th><strong>Default</strong></th>
+<th><strong>Details</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>path</td>
+<td>str</td>
+<td>conda</td>
+<td>Path where package will be created</td>
+</tr>
+<tr class="even">
+<td>do_build</td>
+<td>bool_arg</td>
+<td>True</td>
+<td>Run <code>conda build</code> step</td>
+</tr>
+<tr class="odd">
+<td>build_args</td>
+<td>str</td>
+<td></td>
+<td>Additional args (as str) to send to <code>conda build</code></td>
+</tr>
+<tr class="even">
+<td>skip_upload</td>
+<td>store_true</td>
+<td>False</td>
+<td>Skip <code>anaconda upload</code> step</td>
+</tr>
+<tr class="odd">
+<td>mambabuild</td>
+<td>store_true</td>
+<td>False</td>
+<td>Use <code>mambabuild</code> (requires <code>boa</code>)</td>
+</tr>
+<tr class="even">
+<td>upload_user</td>
+<td>str</td>
+<td>None</td>
+<td>Optional user to upload package to</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><a href="https://github.com/fastai/nbdev/blob/master/nbdev/release.py#L277" target="_blank" style="float:right; font-size:smaller">source</a></p>
+</section>
+<section id="chk_conda_rel" class="level3">
+<h3 class="anchored" data-anchor-id="chk_conda_rel">chk_conda_rel</h3>
+<blockquote class="blockquote">
+<pre><code> chk_conda_rel (nm:str, apkg:str=None, channel:str='fastai',
+                force:&lt;function store_true&gt;=False)</code></pre>
+</blockquote>
+<p>Prints GitHub tag only if a newer release exists on Pypi compared to an Anaconda Repo.</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th></th>
+<th><strong>Type</strong></th>
+<th><strong>Default</strong></th>
+<th><strong>Details</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>nm</td>
+<td>str</td>
+<td></td>
+<td>Package name on pypi</td>
+</tr>
+<tr class="even">
+<td>apkg</td>
+<td>str</td>
+<td>None</td>
+<td>Anaconda Package (defaults to {nm})</td>
+</tr>
+<tr class="odd">
+<td>channel</td>
+<td>str</td>
+<td>fastai</td>
+<td>Anaconda Channel</td>
+</tr>
+<tr class="even">
+<td>force</td>
+<td>store_true</td>
+<td>False</td>
+<td>Always return github tag</td>
+</tr>
+</tbody>
+</table>
+<p>To build and upload a conda package, cd to the root of your repo, and then:</p>
+<pre><code>nbdev_conda_package</code></pre>
+<p>Or to do things more manually:</p>
+<pre><code>nbdev_conda_package --do_build false
+cd conda
+conda build --no-anaconda-upload --output-folder build {name}
+anaconda upload build/noarch/{name}-{ver}-*.tar.bz2</code></pre>
+<p>Add <code>--debug</code> to the <code>conda build command</code> to debug any problems that occur. Note that the build step takes a few minutes. Add <code>-u {org_name}</code> to the <code>anaconda upload</code> command if you wish to upload to an organization, or pass <code>upload_user</code> to <code>nbdev_conda_package</code>.</p>
+<p><strong>NB</strong>: you need to first of all upload your package to PyPi, before creating the conda package.</p>
+<hr>
+<p><a href="https://github.com/fastai/nbdev/blob/master/nbdev/release.py#L292" target="_blank" style="float:right; font-size:smaller">source</a></p>
+</section>
+<section id="release_pypi" class="level3">
+<h3 class="anchored" data-anchor-id="release_pypi">release_pypi</h3>
+<blockquote class="blockquote">
+<pre><code> release_pypi (repository:str='pypi')</code></pre>
+</blockquote>
+<p>Create and upload Python package to PyPI</p>
+<table class="table">
+<colgroup>
+<col style="width: 6%">
+<col style="width: 25%">
+<col style="width: 34%">
+<col style="width: 34%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th><strong>Type</strong></th>
+<th><strong>Default</strong></th>
+<th><strong>Details</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>repository</td>
+<td>str</td>
+<td>pypi</td>
+<td>Respository to upload to (defined in ~/.pypirc)</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><a href="https://github.com/fastai/nbdev/blob/master/nbdev/release.py#L302" target="_blank" style="float:right; font-size:smaller">source</a></p>
+</section>
+<section id="release_both" class="level3">
+<h3 class="anchored" data-anchor-id="release_both">release_both</h3>
+<blockquote class="blockquote">
+<pre><code> release_both (path:str='conda', do_build:&lt;function bool_arg&gt;=True,
+               build_args:str='', skip_upload:&lt;function store_true&gt;=False,
+               mambabuild:&lt;function store_true&gt;=False,
+               upload_user:str=None, repository:str='pypi')</code></pre>
+</blockquote>
+<p>Release both conda and PyPI packages</p>
+<table class="table">
+<colgroup>
+<col style="width: 6%">
+<col style="width: 25%">
+<col style="width: 34%">
+<col style="width: 34%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th><strong>Type</strong></th>
+<th><strong>Default</strong></th>
+<th><strong>Details</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>path</td>
+<td>str</td>
+<td>conda</td>
+<td>Path where package will be created</td>
+</tr>
+<tr class="even">
+<td>do_build</td>
+<td>bool_arg</td>
+<td>True</td>
+<td>Run <code>conda build</code> step</td>
+</tr>
+<tr class="odd">
+<td>build_args</td>
+<td>str</td>
+<td></td>
+<td>Additional args (as str) to send to <code>conda build</code></td>
+</tr>
+<tr class="even">
+<td>skip_upload</td>
+<td>store_true</td>
+<td>False</td>
+<td>Skip <code>anaconda upload</code> step</td>
+</tr>
+<tr class="odd">
+<td>mambabuild</td>
+<td>store_true</td>
+<td>False</td>
+<td>Use <code>mambabuild</code> (requires <code>boa</code>)</td>
+</tr>
+<tr class="even">
+<td>upload_user</td>
+<td>str</td>
+<td>None</td>
+<td>Optional user to upload package to</td>
+</tr>
+<tr class="odd">
+<td>repository</td>
+<td>str</td>
+<td>pypi</td>
+<td>Pypi respository to upload to (defined in ~/.pypirc)</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="bump-version" class="level2">
+<h2 class="anchored" data-anchor-id="bump-version">Bump Version</h2>
+<hr>
+<p><a href="https://github.com/fastai/nbdev/blob/master/nbdev/release.py#L317" target="_blank" style="float:right; font-size:smaller">source</a></p>
+<section id="bump_version" class="level3">
+<h3 class="anchored" data-anchor-id="bump_version">bump_version</h3>
+<blockquote class="blockquote">
+<pre><code> bump_version (version, part=2, unbump=False)</code></pre>
+</blockquote>
+<hr>
+<p><a href="https://github.com/fastai/nbdev/blob/master/nbdev/release.py#L326" target="_blank" style="float:right; font-size:smaller">source</a></p>
+</section>
+<section id="nbdev_bump_version" class="level3">
+<h3 class="anchored" data-anchor-id="nbdev_bump_version">nbdev_bump_version</h3>
+<blockquote class="blockquote">
+<pre><code> nbdev_bump_version (part:int=2, unbump:bool=False)</code></pre>
+</blockquote>
+<p>Increment version in settings.ini by one</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th></th>
+<th><strong>Type</strong></th>
+<th><strong>Default</strong></th>
+<th><strong>Details</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>part</td>
+<td>int</td>
+<td>2</td>
+<td>Part of version to bump</td>
+</tr>
+<tr class="even">
+<td>unbump</td>
+<td>bool</td>
+<td>False</td>
+<td>Reduce version instead of increasing it</td>
+</tr>
+</tbody>
+</table>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
